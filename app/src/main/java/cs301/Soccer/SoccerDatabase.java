@@ -16,6 +16,8 @@ import java.util.*;
  */
 public class SoccerDatabase implements SoccerDB {
 
+    HashMap<String, SoccerPlayer> map = new HashMap<String, SoccerPlayer>();
+
     /**
      * add a player
      *
@@ -24,6 +26,15 @@ public class SoccerDatabase implements SoccerDB {
     @Override
     public boolean addPlayer(String firstName, String lastName,
                              int uniformNumber, String teamName) {
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            return false;
+        } else {
+            SoccerPlayer newPlayer = new SoccerPlayer(firstName, lastName,
+                    uniformNumber, teamName);
+            map.put(key, newPlayer);
+        }
+
         return false;
     }
 
@@ -44,7 +55,12 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public SoccerPlayer getPlayer(String firstName, String lastName) {
-        return null;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            return map.get(key);
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -180,6 +196,10 @@ public class SoccerDatabase implements SoccerDB {
     @Override
     public HashSet<String> getTeams() {
         return new HashSet<String>();
+    }
+
+    public String appendName(String firstName, String lastName){
+        return firstName + "##" + lastName;
     }
 
 }
