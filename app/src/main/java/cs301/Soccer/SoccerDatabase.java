@@ -3,6 +3,7 @@ package cs301.Soccer;
 import android.util.Log;
 import cs301.Soccer.soccerPlayer.SoccerPlayer;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
@@ -249,7 +250,26 @@ public class SoccerDatabase implements SoccerDB {
     // write data to file
     @Override
     public boolean writeData(File file) {
-        return false;
+        try {
+            PrintWriter pw = new PrintWriter(file);
+            for(String key : map.keySet()){
+                SoccerPlayer player = map.get(key);
+                pw.println(logString(player.getFirstName()));
+                pw.println(logString(player.getLastName()));
+                pw.println(logString(player.getTeamName()));
+                pw.println(logString(Integer.toString(player.getUniform())));
+                pw.println(logString(Integer.toString(player.getGoals())));
+                pw.println(logString(Integer.toString(player.getAssists())));
+                pw.println(logString(Integer.toString(player.getShots())));
+                pw.println(logString(Integer.toString(player.getFouls())));
+                pw.println(logString(Integer.toString(player.getSaves())));
+                pw.println(logString(Integer.toString(player.getYellowCards())));
+                pw.println(logString(Integer.toString(player.getRedCards())));
+            }
+            return true;
+        } catch(Exception FileNotFoundException){
+            return false;
+        }
     }
 
     /**
