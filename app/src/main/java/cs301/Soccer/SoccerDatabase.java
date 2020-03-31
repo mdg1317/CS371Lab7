@@ -75,7 +75,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpGoals(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpGoals();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -85,7 +91,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpAssists(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpAssists();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -95,7 +107,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpShots(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpShots();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -105,7 +123,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpSaves(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpSaves();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -115,7 +139,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpFouls(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpFouls();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -125,7 +155,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpYellowCards(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpYellowCards();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -135,7 +171,13 @@ public class SoccerDatabase implements SoccerDB {
      */
     @Override
     public boolean bumpRedCards(String firstName, String lastName) {
-        return false;
+        String key = appendName(firstName, lastName);
+        if(map.get(key) != null){
+            map.get(key).bumpRedCards();
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
