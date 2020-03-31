@@ -33,9 +33,8 @@ public class SoccerDatabase implements SoccerDB {
             SoccerPlayer newPlayer = new SoccerPlayer(firstName, lastName,
                     uniformNumber, teamName);
             map.put(key, newPlayer);
+            return true;
         }
-
-        return false;
     }
 
     /**
